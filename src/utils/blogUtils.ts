@@ -130,10 +130,16 @@ export const getPostContent = async (slug: string): Promise<string> => {
     }
     
     const content = await response.text();
+    
+    // Validate that we received actual markdown content
+    if (!content || content.trim() === '') {
+      throw new Error('Received empty markdown content');
+    }
+    
     return content;
   } catch (error) {
     console.error(`Error loading markdown for slug ${slug}:`, error);
-    return `Failed to load content for ${slug}. The post might not exist or there was an error loading it.`;
+    throw error; // Re-throw to let the component handle the error display
   }
 };
 
