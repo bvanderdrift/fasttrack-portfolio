@@ -8,13 +8,18 @@ import Footer from "@/components/Footer";
 import { getPostBySlug, getPostContent } from "@/utils/blogUtils";
 import { BlogPost } from "@/components/BlogCard";
 import { marked } from "marked";
+import { Skeleton } from "@/components/ui/skeleton";
 
-const configureMarkedRenderer = (slug: string) => {
-  const renderer = new marked.Renderer();
+interface CustomRenderer extends marked.Renderer {
+  image: (href: string, title: string | null, text: string) => string;
+}
+
+const configureMarkedRenderer = (slug: string): CustomRenderer => {
+  const renderer = new marked.Renderer() as CustomRenderer;
   
   // Custom image renderer to handle relative image paths
   const originalImageRenderer = renderer.image;
-  renderer.image = function(href, title, text) {
+  renderer.image = function(href: string, title: string | null, text: string): string {
     try {
       if (typeof href !== 'string') {
         console.error('Image href is not a string:', href);
@@ -85,6 +90,7 @@ const BlogPostPage = () => {
         const contentWithoutFrontmatter = markdown.replace(/^---[\s\S]*?---\s*/m, '');
         
         setContent(renderMarkdown(contentWithoutFrontmatter, slug));
+        setError(null); // Clear any previous errors
       } catch (error) {
         console.error("Error loading post content:", error);
         setError("Failed to load blog post content. Please try again later.");
@@ -103,10 +109,10 @@ const BlogPostPage = () => {
         <Header />
         <main className="min-h-screen pt-24 pb-16 px-6">
           <div className="max-w-3xl mx-auto">
-            <div className="animate-pulse space-y-4">
-              <div className="h-8 bg-secondary/20 rounded w-3/4"></div>
-              <div className="h-4 bg-secondary/20 rounded w-1/4"></div>
-              <div className="h-64 bg-secondary/20 rounded w-full mt-8"></div>
+            <div className="space-y-4">
+              <Skeleton className="h-8 w-3/4" />
+              <Skeleton className="h-4 w-1/4" />
+              <Skeleton className="h-64 w-full mt-8" />
             </div>
           </div>
         </main>

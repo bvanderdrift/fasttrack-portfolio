@@ -32,10 +32,14 @@ const BlogCard = ({ post, index, isLoaded = true }: BlogCardProps) => {
       className={cn(
         "block p-6 rounded-xl border border-primary/10 bg-white/95",
         "hover:shadow-md transition-all duration-300 hover:bg-white",
-        {"opacity-0": !isLoaded},
-        {"animate-scale": isLoaded}
+        "transform-gpu",
+        isLoaded ? "opacity-100" : "opacity-0",
+        isLoaded && "animate-fade-in"
       )}
-      style={{ animationDelay: `${delay}s` }}
+      style={{ 
+        animationDelay: `${delay}s`,
+        animationFillMode: "both" 
+      }}
     >
       <div className="space-y-2">
         <div className="flex items-center gap-2">

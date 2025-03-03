@@ -11,7 +11,7 @@ const Blog = () => {
   const hasMounted = useRef(false);
   
   useEffect(() => {
-    // Only run animation once the component has mounted
+    // Only run once the component has mounted
     if (!hasMounted.current) {
       // Fetch published posts
       const fetchedPosts = getPublishedPosts();
@@ -21,11 +21,11 @@ const Blog = () => {
       );
       setPosts(sortedPosts);
       
-      // Small delay to ensure smoother animations
-      setTimeout(() => {
+      // Small delay to ensure DOM is ready
+      requestAnimationFrame(() => {
         setIsLoaded(true);
         hasMounted.current = true;
-      }, 100);
+      });
     }
   }, []);
   
@@ -34,11 +34,11 @@ const Blog = () => {
       <Header />
       <main className="min-h-screen pt-24 pb-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16 animate-slide-up">
-            <h1 className="text-3xl md:text-5xl font-medium tracking-tight mb-4">
+          <div className="text-center mb-16">
+            <h1 className="text-3xl md:text-5xl font-medium tracking-tight mb-4 opacity-0 animate-fade-in" style={{ animationFillMode: "forwards" }}>
               Blog
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto opacity-0 animate-fade-in" style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
               Thoughts, learnings, and insights from my journey as a product engineer.
             </p>
           </div>

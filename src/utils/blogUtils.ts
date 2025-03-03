@@ -126,7 +126,7 @@ export const getPostContent = async (slug: string): Promise<string> => {
     const response = await fetch(markdownPath);
     
     if (!response.ok) {
-      throw new Error(`Failed to fetch markdown file: ${response.statusText}`);
+      throw new Error(`Failed to fetch markdown file: ${response.status} ${response.statusText}`);
     }
     
     const content = await response.text();
