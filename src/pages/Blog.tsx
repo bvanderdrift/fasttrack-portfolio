@@ -15,7 +15,7 @@ const Blog = () => {
   }, []);
   
   return (
-    <>
+    <div className="min-h-screen bg-subtle-pattern bg-fixed">
       <Header />
       <main className="min-h-screen pt-24 pb-16 px-6">
         <div className="max-w-5xl mx-auto">
@@ -29,7 +29,7 @@ const Blog = () => {
           </div>
           
           {posts.length === 0 ? (
-            <div className="text-center py-20">
+            <div className="text-center py-20 content-card rounded-xl p-8">
               <p className="text-muted-foreground">No posts found.</p>
             </div>
           ) : (
@@ -42,7 +42,7 @@ const Blog = () => {
         </div>
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

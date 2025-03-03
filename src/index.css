@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -43,6 +42,10 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Updated background to a soft gradient */
+    --background-start: 210 100% 98%;
+    --background-end: 280 100% 96%;
   }
 }
 
@@ -52,7 +55,8 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-gradient-to-br from-background-start to-background-end text-foreground min-h-screen;
+    background-attachment: fixed;
   }
 
   /* Custom underline animation for links */
@@ -162,7 +166,7 @@
 
 /* Markdown content styling */
 .markdown-content {
-  @apply prose prose-stone max-w-none lg:prose-lg;
+  @apply max-w-none lg:text-lg;
 }
 
 .markdown-content h1,
@@ -181,4 +185,9 @@
 
 .markdown-content pre {
   @apply bg-zinc-900 text-zinc-100 p-4 rounded-md overflow-x-auto;
+}
+
+/* Card styles with subtle hover effect */
+.content-card {
+  @apply bg-white/90 backdrop-blur-sm shadow-sm border border-white/50 transition-all duration-300 hover:shadow-md hover:bg-white/95;
 }

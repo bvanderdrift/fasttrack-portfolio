@@ -23,6 +23,8 @@ export default {
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
+				'background-start': 'hsl(var(--background-start))',
+				'background-end': 'hsl(var(--background-end))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
@@ -150,12 +152,19 @@ export default {
 				highlight: 'inset 0 1px 0 0 rgba(255, 255, 255, 0.1)',
 				subtle: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
 			},
+			backgroundImage: {
+				'subtle-pattern': "url('data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E')",
+			},
 			backdropFilter: {
 				'none': 'none',
 				'blur': 'blur(20px)',
 			},
 			typography: {
-				// Add any custom typography configuration here if needed
+				DEFAULT: {
+					css: {
+						maxWidth: 'none',
+					},
+				},
 			},
 		}
 	},
