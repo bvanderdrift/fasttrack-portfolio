@@ -1,13 +1,17 @@
 
 import { useState, useEffect } from "react";
-import { Briefcase, Code, Terminal, Rocket } from "lucide-react";
+import { Briefcase, Code, Terminal, Rocket, Lightbulb } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ExperienceCard, { Experience } from "@/components/ExperienceCard";
 import experiencesData from "@/data/experiences.json";
 
 // Map icon names to actual components
-const getIconComponent = (index: number) => {
+const getIconComponent = (index: number, workType: string) => {
+  if (workType === "asHobbyist") {
+    return <Lightbulb className="h-5 w-5 text-fun" />;
+  }
+
   const icons = [
     <Briefcase className="h-5 w-5 text-fast" />,
     <Code className="h-5 w-5 text-energy" />,
@@ -22,15 +26,23 @@ const ExperiencePage = () => {
   const [experiences, setExperiences] = useState<Experience[]>([]);
   
   useEffect(() => {
-    // In a real app, this might fetch data from an API or parse JSON files
-    // Here we're just using the imported JSON and adding icons
-    const experiencesWithIcons = experiencesData.map((exp, index) => ({
+    // Parse experiences and add icons
+    const experiencesWithIcons = experiencesData.map((exp: any, index: number) => ({
       ...exp,
-      icon: getIconComponent(index)
+      icon: getIconComponent(index, exp.workType)
     }));
     
     setExperiences(experiencesWithIcons);
   }, []);
+  
+  // Split experiences into professional and hobbyist
+  const professionalExperiences = experiences.filter(
+    exp => exp.workType === "asEmployee" || exp.workType === "asFreelancer"
+  );
+  
+  const hobbyistExperiences = experiences.filter(
+    exp => exp.workType === "asHobbyist"
+  );
   
   return (
     <>
@@ -46,15 +58,37 @@ const ExperiencePage = () => {
             </p>
           </div>
           
-          <div className="space-y-8">
-            {experiences.map((experience, index) => (
+          {/* Professional Experience Section */}
+          <div className="space-y-8 mb-20">
+            <h2 className="text-2xl font-medium mb-6 animate-slide-up">
+              Professional Experience
+            </h2>
+            
+            {professionalExperiences.map((experience, index) => (
               <ExperienceCard 
-                key={`${experience.company}-${index}`}
+                key={`${experience.title}-${index}`}
                 experience={experience}
                 index={index}
               />
             ))}
           </div>
+          
+          {/* Hobbyist Projects Section */}
+          {hobbyistExperiences.length > 0 && (
+            <div className="space-y-8 mb-20">
+              <h2 className="text-2xl font-medium mb-6 animate-slide-up">
+                Side Projects & Experiments
+              </h2>
+              
+              {hobbyistExperiences.map((experience, index) => (
+                <ExperienceCard 
+                  key={`${experience.title}-${index}`}
+                  experience={experience}
+                  index={index}
+                />
+              ))}
+            </div>
+          )}
           
           {/* Key Technologies Section */}
           <div className="mt-20">
