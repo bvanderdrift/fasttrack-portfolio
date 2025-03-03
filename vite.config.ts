@@ -12,4 +12,7 @@ export default defineConfig({
     }
   },
   assetsInclude: ['**/*.md'], // Include markdown files as assets
+  server: {
+    port: 8080
+  }
 })

@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
@@ -12,8 +11,8 @@ import { marked } from "marked";
 const configureMarkedRenderer = (slug: string) => {
   const renderer = new marked.Renderer();
   
-  // Fix the type error by matching the expected signature
-  renderer.image = function(href, title, text) {
+  // Custom image renderer to handle relative image paths
+  renderer.image = function(href: string, title: string | null, text: string) {
     if (href.startsWith('http') || href.startsWith('//')) {
       return `<img src="${href}" alt="${text}" title="${title || ''}" class="rounded-md my-4 max-w-full" />`;
     }
@@ -28,17 +27,16 @@ const configureMarkedRenderer = (slug: string) => {
 const renderMarkdown = (markdown: string, slug: string): string => {
   const renderer = configureMarkedRenderer(slug);
   
-  // Fix the sanitize option which is no longer supported in newer marked versions
+  // Configure marked options with compatible properties
   marked.setOptions({
     renderer,
     gfm: true,
     breaks: true,
-    smartLists: true,
     smartypants: true,
     xhtml: true
   });
   
-  return marked.parse(markdown) as string;
+  return marked.parse(markdown);
 };
 
 const BlogPostPage = () => {

@@ -116,13 +116,20 @@ export const getPostBySlug = (slug: string): BlogPost | undefined => {
   return getAllPosts().find(post => post.slug === slug);
 };
 
-// Dynamically import markdown content instead of hardcoding it
+// Fetch markdown content instead of importing it
 export const getPostContent = async (slug: string): Promise<string> => {
   try {
-    // Dynamically import the markdown file
-    const markdownModule = await import(`../data/blog/${slug}/index.md`);
-    // Get the raw content of the markdown file
-    const content = markdownModule.default;
+    // Construct the path to the markdown file
+    const markdownPath = `/src/data/blog/${slug}/index.md`;
+    
+    // Fetch the file as text
+    const response = await fetch(markdownPath);
+    
+    if (!response.ok) {
+      throw new Error(`Failed to fetch markdown file: ${response.statusText}`);
+    }
+    
+    const content = await response.text();
     return content;
   } catch (error) {
     console.error(`Error loading markdown for slug ${slug}:`, error);
