@@ -1,46 +1,17 @@
-import { useState, useEffect } from "react";
-import { Briefcase, Code, Terminal, Rocket, Lightbulb } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WorkCard, { Work } from "@/components/WorkCard";
 import workData from "@/data/work.json";
 
-// Map icon names to actual components
-const getIconComponent = (index: number, workType: string) => {
-  if (workType === "asHobbyist") {
-    return <Lightbulb className="h-5 w-5 text-fun" />;
-  }
-
-  const icons = [
-    <Briefcase className="h-5 w-5 text-fast" />,
-    <Code className="h-5 w-5 text-energy" />,
-    <Terminal className="h-5 w-5 text-pragmatic" />,
-    <Rocket className="h-5 w-5 text-fun" />,
-  ];
-
-  return icons[index % icons.length];
-};
-
 const WorkPage = () => {
-  const [experiences, setExperiences] = useState<Work[]>([]);
-
-  useEffect(() => {
-    // Parse experiences and add icons
-    const experiencesWithIcons = workData.map((exp: any, index: number) => ({
-      ...exp,
-      icon: getIconComponent(index, exp.workType),
-    }));
-
-    setExperiences(experiencesWithIcons);
-  }, []);
-
   // Split experiences into professional and hobbyist
-  const professionalExperiences = experiences.filter(
-    (exp) => exp.workType === "asEmployee" || exp.workType === "asFreelancer"
+  const professionalExperiences = workData.filter(
+    (exp): exp is Work =>
+      exp.workType === "asEmployee" || exp.workType === "asFreelancer"
   );
 
-  const hobbyistExperiences = experiences.filter(
-    (exp) => exp.workType === "asHobbyist"
+  const hobbyistExperiences = workData.filter(
+    (exp): exp is Work => exp.workType === "asHobbyist"
   );
 
   return (

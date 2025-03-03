@@ -5,13 +5,12 @@ import { TechTag } from "./TechTag";
 
 export type Work = {
   title: string;
-  role?: string;
+  role: string;
   workType: "asEmployee" | "asFreelancer" | "asHobbyist";
-  techs?: string[];
+  techs: string[];
   description: string;
-  link?: string;
-  image?: string;
-  icon?: ReactNode;
+  link: string;
+  image: string;
 };
 
 interface WorkCardProps {
@@ -51,7 +50,7 @@ const WorkCard = ({ experience, index }: WorkCardProps) => {
       style={{ animationDelay: `${index * 0.1}s` }}
     >
       <div className="flex items-start gap-4">
-        {experience.image ? (
+        {
           <div className="flex-shrink-0">
             <img
               src={experience.image}
@@ -59,13 +58,7 @@ const WorkCard = ({ experience, index }: WorkCardProps) => {
               className="w-12 h-12 object-contain rounded-md"
             />
           </div>
-        ) : (
-          experience.icon && (
-            <div className="flex-shrink-0 p-2 bg-secondary rounded-md">
-              {experience.icon}
-            </div>
-          )
-        )}
+        }
 
         <div className="flex-1">
           <div className="flex items-start justify-between">
