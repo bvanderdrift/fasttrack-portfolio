@@ -28,19 +28,25 @@ const Index = () => {
                 </div>
 
                 <h1 className="text-4xl md:text-5xl font-medium tracking-tight leading-tight">
-                  Beer van der Drift
+                  Hi, I'm <span className="text-energy">Beer</span>
                 </h1>
 
                 <h2 className="text-2xl md:text-3xl font-medium tracking-tight leading-tight mt-2">
-                  Building <span className="text-energy">fast</span>,{" "}
-                  <span className="text-pragmatic">pragmatic</span>, and{" "}
-                  <span className="text-fun">engaging</span> digital products
+                  I value <span className="text-pragmatic">speed</span>,{" "}
+                  <span className="text-fast">pragmatism</span>, and{" "}
+                  <span className="text-fun">curiousity</span>.
                 </h2>
 
                 <p className="mt-6 text-xl text-muted-foreground max-w-3xl">
-                  I specialize in creating elegant solutions for fast-moving
-                  startups, focusing on user experience and clean, maintainable
-                  code.
+                  Check out some of my{" "}
+                  <Link to="/work" className="text-energy hover:underline">
+                    work
+                  </Link>{" "}
+                  or{" "}
+                  <Link to="/thoughts" className="text-energy hover:underline">
+                    thoughts
+                  </Link>
+                  .
                 </p>
 
                 {/* Social Links */}
@@ -63,24 +69,6 @@ const Index = () => {
                     <Linkedin className="h-5 w-5" />
                     LinkedIn
                   </a>
-                </div>
-
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <Link
-                    to="/work"
-                    className="bg-primary inline-flex items-center gap-2 px-4 py-2 border border-border rounded-md hover:border-primary transition-colors font-medium"
-                  >
-                    View my work
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-
-                  <Link
-                    to="/thoughts"
-                    className="inline-flex items-center gap-2 px-4 py-2  text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium"
-                  >
-                    Read my thoughts
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
                 </div>
               </div>
             </div>
