@@ -59,7 +59,7 @@ const WorkCard = ({ experience, index }: WorkCardProps) => {
         "rounded-xl p-6 shadow-subtle border bg-white relative",
         animation,
         "hover:shadow-md transition-all duration-300",
-        "border-l-4",
+        "border-l-8",
         accentColor
       )}
       style={{ animationDelay: `${index * 0.1}s` }}
