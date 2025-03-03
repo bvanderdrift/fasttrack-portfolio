@@ -108,7 +108,7 @@ export const getAllPosts = (): BlogPost[] => {
       published: true,
     },
     {
-      slug: "data-on-dropdowns",
+      slug: "the-data-on-dropdowns",
       title: "The Data on Dropdowns",
       excerpt:
         "😠 Sometimes I stumble upon a dropdown with two options. Let's see if we can do better.",
