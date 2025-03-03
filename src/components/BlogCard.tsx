@@ -17,9 +17,10 @@ export type BlogPost = {
 interface BlogCardProps {
   post: BlogPost;
   index: number;
+  isLoaded?: boolean;
 }
 
-const BlogCard = ({ post, index }: BlogCardProps) => {
+const BlogCard = ({ post, index, isLoaded = true }: BlogCardProps) => {
   const formattedDate = format(new Date(post.date), "MMM d, yyyy");
   
   // Animation delay based on index
@@ -31,7 +32,8 @@ const BlogCard = ({ post, index }: BlogCardProps) => {
       className={cn(
         "block p-6 rounded-xl border border-primary/10 bg-white/95",
         "hover:shadow-md transition-all duration-300 hover:bg-white",
-        "animate-scale"
+        {"opacity-0": !isLoaded},
+        {"animate-scale": isLoaded}
       )}
       style={{ animationDelay: `${delay}s` }}
     >

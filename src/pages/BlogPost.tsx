@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
@@ -12,7 +13,8 @@ const configureMarkedRenderer = (slug: string) => {
   const renderer = new marked.Renderer();
   
   // Custom image renderer to handle relative image paths
-  renderer.image = function(href: string, title: string | null, text: string) {
+  const originalImageRenderer = renderer.image;
+  renderer.image = function(href, title, text) {
     try {
       if (typeof href !== 'string') {
         console.error('Image href is not a string:', href);
@@ -42,11 +44,10 @@ const renderMarkdown = (markdown: string, slug: string): string => {
     marked.setOptions({
       renderer,
       gfm: true,
-      breaks: true,
-      xhtml: true
+      breaks: true
     });
     
-    return marked.parse(markdown) as string;
+    return marked.parse(markdown);
   } catch (error) {
     console.error('Error parsing markdown:', error);
     return `<p>Error rendering content: ${error instanceof Error ? error.message : String(error)}</p>`;
@@ -79,7 +80,11 @@ const BlogPostPage = () => {
       
       try {
         const markdown = await getPostContent(slug);
-        setContent(renderMarkdown(markdown, slug));
+        
+        // Remove the frontmatter section if present
+        const contentWithoutFrontmatter = markdown.replace(/^---[\s\S]*?---\s*/m, '');
+        
+        setContent(renderMarkdown(contentWithoutFrontmatter, slug));
       } catch (error) {
         console.error("Error loading post content:", error);
         setError("Failed to load blog post content. Please try again later.");
@@ -99,9 +104,9 @@ const BlogPostPage = () => {
         <main className="min-h-screen pt-24 pb-16 px-6">
           <div className="max-w-3xl mx-auto">
             <div className="animate-pulse space-y-4">
-              <div className="h-8 bg-secondary rounded w-3/4"></div>
-              <div className="h-4 bg-secondary rounded w-1/4"></div>
-              <div className="h-64 bg-secondary rounded w-full mt-8"></div>
+              <div className="h-8 bg-secondary/20 rounded w-3/4"></div>
+              <div className="h-4 bg-secondary/20 rounded w-1/4"></div>
+              <div className="h-64 bg-secondary/20 rounded w-full mt-8"></div>
             </div>
           </div>
         </main>
@@ -140,7 +145,7 @@ const BlogPostPage = () => {
   return (
     <>
       <Header />
-      <main className="min-h-screen pt-24 pb-16 px-6 animate-fade-in">
+      <main className="min-h-screen pt-24 pb-16 px-6">
         <article className="max-w-3xl mx-auto">
           <div className="mb-8">
             <button 

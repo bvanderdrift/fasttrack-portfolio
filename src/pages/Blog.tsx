@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BlogCard, { BlogPost } from "@/components/BlogCard";
@@ -7,15 +7,26 @@ import { getPublishedPosts } from "@/utils/blogUtils";
 
 const Blog = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const hasMounted = useRef(false);
   
   useEffect(() => {
-    // Fetch published posts
-    const fetchedPosts = getPublishedPosts();
-    // Sort by date, newest first
-    const sortedPosts = [...fetchedPosts].sort((a, b) => 
-      new Date(b.date).getTime() - new Date(a.date).getTime()
-    );
-    setPosts(sortedPosts);
+    // Only run animation once the component has mounted
+    if (!hasMounted.current) {
+      // Fetch published posts
+      const fetchedPosts = getPublishedPosts();
+      // Sort by date, newest first
+      const sortedPosts = [...fetchedPosts].sort((a, b) => 
+        new Date(b.date).getTime() - new Date(a.date).getTime()
+      );
+      setPosts(sortedPosts);
+      
+      // Small delay to ensure smoother animations
+      setTimeout(() => {
+        setIsLoaded(true);
+        hasMounted.current = true;
+      }, 100);
+    }
   }, []);
   
   return (
@@ -39,7 +50,12 @@ const Blog = () => {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {posts.map((post, index) => (
-                <BlogCard key={post.slug} post={post} index={index} />
+                <BlogCard 
+                  key={post.slug} 
+                  post={post} 
+                  index={index} 
+                  isLoaded={isLoaded} 
+                />
               ))}
             </div>
           )}
