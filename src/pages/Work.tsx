@@ -14,6 +14,8 @@ const WorkPage = () => {
     (exp): exp is Work => exp.workType === "asHobbyist"
   );
 
+  const techs = Array.from(new Set(workData.flatMap((exp) => exp.techs)));
+
   return (
     <>
       <Header />
@@ -63,31 +65,14 @@ const WorkPage = () => {
           {/* Key Technologies Section */}
           <div className="mt-20">
             <h2 className="text-2xl font-medium mb-8 animate-slide-up">
-              Technologies I Work With
+              Technologies I Worked With
             </h2>
 
             <div
               className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 animate-slide-up"
               style={{ animationDelay: "0.2s" }}
             >
-              {[
-                "JavaScript",
-                "TypeScript",
-                "React",
-                "Node.js",
-                "Express",
-                "Next.js",
-                "GraphQL",
-                "REST APIs",
-                "PostgreSQL",
-                "MongoDB",
-                "Redis",
-                "AWS",
-                "Docker",
-                "CI/CD",
-                "Jest",
-                "Cypress",
-              ].map((tech, index) => (
+              {techs.map((tech, index) => (
                 <div
                   key={tech}
                   className="bg-white border border-border rounded-lg p-4 text-center hover:border-primary/50 hover:shadow-sm transition-all duration-300"
