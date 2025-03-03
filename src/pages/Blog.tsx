@@ -36,7 +36,7 @@ const Blog = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <h1 className="text-3xl md:text-5xl font-medium tracking-tight mb-4 opacity-0 animate-fade-in" style={{ animationFillMode: "forwards" }}>
-              Blog
+            Thoughts
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto opacity-0 animate-fade-in" style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
               Thoughts, learnings, and insights from my journey as a product engineer.
