@@ -25,7 +25,7 @@ const Blog = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16 animate-slide-up">
             <h1 className="text-3xl md:text-5xl font-medium tracking-tight mb-4">
-              Blog
+              Thoughts
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Thoughts, learnings, and insights from my journey as a product engineer.

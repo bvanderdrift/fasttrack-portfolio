@@ -48,14 +48,14 @@ const BlogPostPage = () => {
   
   useEffect(() => {
     if (!slug) {
-      navigate("/blog");
+      navigate("/thoughts");
       return;
     }
     
     const postData = getPostBySlug(slug);
     
     if (!postData || !postData.published) {
-      navigate("/blog");
+      navigate("/thoughts");
       return;
     }
     

@@ -68,10 +68,10 @@ const Index = () => {
                   </Link>
                   
                   <Link 
-                    to="/blog" 
+                    to="/thoughts" 
                     className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium"
                   >
-                    Read my blog
+                    Read my thoughts
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>

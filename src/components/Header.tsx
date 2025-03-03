@@ -12,7 +12,7 @@ const Header = () => {
   const navigation = [
     { name: "Home", to: "/" },
     { name: "Experience", to: "/experience" },
-    { name: "Blog", to: "/blog" },
+    { name: "Thoughts", to: "/thoughts" },
   ];
 
   useEffect(() => {
