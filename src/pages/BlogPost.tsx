@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
@@ -9,10 +8,34 @@ import { getPostBySlug, getPostContent } from "@/utils/blogUtils";
 import { BlogPost } from "@/components/BlogCard";
 import { marked } from "marked";
 
-// A basic markdown renderer - in a real app you might use a more robust library
-const renderMarkdown = (markdown: string): string => {
-  // In a real implementation, you'd use a proper markdown parser
-  // For this demo, we're using a simplified approach with marked
+const configureMarkedRenderer = (slug: string) => {
+  const renderer = new marked.Renderer();
+  
+  renderer.image = (href, title, text) => {
+    if (href.startsWith('http') || href.startsWith('//')) {
+      return `<img src="${href}" alt="${text}" title="${title || ''}" class="rounded-md my-4 max-w-full" />`;
+    }
+    
+    const imagePath = `/src/data/blog/${slug}/${href}`;
+    return `<img src="${imagePath}" alt="${text}" title="${title || ''}" class="rounded-md my-4 max-w-full" />`;
+  };
+  
+  return renderer;
+};
+
+const renderMarkdown = (markdown: string, slug: string): string => {
+  const renderer = configureMarkedRenderer(slug);
+  
+  marked.setOptions({
+    renderer,
+    gfm: true,
+    breaks: true,
+    sanitize: false,
+    smartLists: true,
+    smartypants: true,
+    xhtml: true
+  });
+  
   return marked.parse(markdown) as string;
 };
 
@@ -29,20 +52,17 @@ const BlogPostPage = () => {
       return;
     }
     
-    // Fetch post data
     const postData = getPostBySlug(slug);
     
     if (!postData || !postData.published) {
-      // Post not found or not published, redirect to blog listing
       navigate("/blog");
       return;
     }
     
     setPost(postData);
     
-    // Fetch and render post content
     const markdown = getPostContent(slug);
-    setContent(renderMarkdown(markdown));
+    setContent(renderMarkdown(markdown, slug));
     setIsLoading(false);
   }, [slug, navigate]);
   
@@ -111,7 +131,7 @@ const BlogPostPage = () => {
           </div>
           
           <div 
-            className="prose max-w-none prose-headings:font-medium prose-a:text-primary hover:prose-a:text-primary/80 prose-a:transition-colors prose-pre:bg-zinc-950"
+            className="prose max-w-none prose-headings:font-medium prose-a:text-primary hover:prose-a:text-primary/80 prose-a:transition-colors prose-pre:bg-zinc-950 prose-img:rounded-lg"
             dangerouslySetInnerHTML={{ __html: content }}
           />
         </article>

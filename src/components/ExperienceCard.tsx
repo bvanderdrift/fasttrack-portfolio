@@ -46,7 +46,15 @@ const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
       style={{ animationDelay: `${index * 0.1}s` }}
     >
       <div className="flex items-start gap-4">
-        {experience.icon && (
+        {experience.image ? (
+          <div className="flex-shrink-0">
+            <img 
+              src={experience.image} 
+              alt={experience.title}
+              className="w-12 h-12 object-contain rounded-md"
+            />
+          </div>
+        ) : experience.icon && (
           <div className="flex-shrink-0 p-2 bg-secondary rounded-md">
             {experience.icon}
           </div>

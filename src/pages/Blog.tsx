@@ -9,9 +9,13 @@ const Blog = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   
   useEffect(() => {
-    // In a real implementation, this would fetch posts from markdown files
+    // Fetch published posts
     const fetchedPosts = getPublishedPosts();
-    setPosts(fetchedPosts);
+    // Sort by date, newest first
+    const sortedPosts = [...fetchedPosts].sort((a, b) => 
+      new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+    setPosts(sortedPosts);
   }, []);
   
   return (
