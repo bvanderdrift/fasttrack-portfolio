@@ -13,7 +13,7 @@
     "role": "Lead Software Engineer",
     "description": "* Set up all tech on which Legal OS raised €2 million seed round.\n* Set up recruiting process and executed ahead of the seed round.\n* Product had zero downtime during my time at Legal OS.\n* Set up single-click deployment and migration infrastructure.",
     "link": "https://www.legalos.io/",
-    "image": "/data/img/LegalOS-logo.png"
+    "image": "/img/LegalOS-logo.png"
   },
   {
     "title": "Crunchr Planning",
@@ -22,7 +22,7 @@
     "techs": ["PostgreSQL", "Python", "Django", "Angular"],
     "description": "* Done dozens of user interviews as part of launching a new product.\n* Performed **1:1's** with 2 developers to have a healthy team.\n* Developed as well because of small team (3).",
     "link": "https://www.crunchrapps.com/planning",
-    "image": "/data/img/Crunchr-planning.png"
+    "image": "/img/Crunchr-planning.png"
   },
   {
     "title": "Crunchr Preference",
@@ -31,7 +31,7 @@
     "techs": ["PostgreSQL", "Python", "Django", "Angular"],
     "description": "* Moved unmanaged team to **outcome-driven development**.\n* Performed **1:1's** with 2 different developers than above.\n* Developed as well here, again because of small team (3).",
     "link": "https://www.crunchrapps.com/preference",
-    "image": "/data/img/Crunchr-preference.png"
+    "image": "/img/Crunchr-preference.png"
   },
   {
     "title": "Pieter Pot",
@@ -40,7 +40,7 @@
     "role": "Fullstack Developer",
     "description": "* Onboarded 3rd party owned development processes into internal development team.\n* Main focus was the mobile app, but I worked on all the technical components of the company (backend, website, deposit management system).",
     "link": "https://pieter-pot.nl/",
-    "image": "/data/img/pp-logo.jpg"
+    "image": "/img/pp-logo.jpg"
   },
   {
     "title": "StockAlarm",
@@ -58,7 +58,7 @@
     "role": "One man army",
     "description": "* Wore many hats; Fullstack development to customer support.\n* Identified key strategic goals to work towards such as expending outside of the US.\n* Implemented the technology necessary to achieve goals focus on scalability.\n* Worked on high-load low-latency infrastructure",
     "link": "https://stockalarm.io/",
-    "image": "/data/img/sa-logo.jpg"
+    "image": "/img/sa-logo.jpg"
   },
   {
     "title": "Code.nl",
@@ -73,7 +73,7 @@
     "role": "Fullstack Developer",
     "description": "* Helped to create endpoints using serverless tech for smooth user experiences on web-shops hosted through the Shopify platform.",
     "link": "https://www.code.nl/en/services/shopify-apps",
-    "image": "/data/img/code-logo.png"
+    "image": "/img/code-logo.png"
   },
   {
     "title": "Producter",
@@ -81,20 +81,21 @@
     "description": "It's hard to have a single-source-of truth for Product Teams that doesn't grow to a mess. I set out to fix that.\n\n⚰️ I didn't care deeply enough about the product to put in the energy required.",
     "techs": ["React", "Firestore", "TypeScript"],
     "link": "https://getproducter.com/",
-    "image": "/data/img/bread-emoji.png"
+    "image": "/img/bread-emoji.png"
   },
   {
     "title": "Who is Playing?",
     "workType": "asHobbyist",
     "description": "Why not **listen** to who is playing instead of read up on it? Makes picking a party for the evening much easier.\n\n⚰️ Shutdown because SoundCloud closed it's streaming API.",
     "techs": ["React", "TypeScript"],
-    "image": "/data/img/Who-is-playing.png"
+    "image": "/img/Who-is-playing.png"
   },
   {
     "title": "MixMerger",
     "workType": "asHobbyist",
     "description": "Using the fact that songs appear in multiple mixes, you can create infinite mixes by merging where they play the same songs.\n\n⚰️ Shutdown because I over-engineered the Fourier Transformations to detect overlapping songs. If I would pick this up again I would first mechanical-turk the tool.",
-    "techs": ["Node.js", "TypeScript", "Java", "Fourier Transformations"]
+    "techs": ["Node.js", "TypeScript", "Java", "Fourier Transformations"],
+    "image": "/img/Who-is-playing.png"
   },
   {
     "title": "Transcendance",
@@ -102,6 +103,6 @@
     "description": "VR allows you to truly be immersed with music. I created a prototype, released on [the Oculus forums](https://forums.oculusvr.com/community/discussion/6000/transcendance-a-musical-experience), which got picked up by [one of the main VR youtubers](https://youtu.be/ziFX6t-878Q?t=102) back in 2013.\n\n🦸 Since I was a student never intended to take it further, but the positive reactions made me consider this a success!",
     "techs": ["Unity3D", "C#"],
     "link": "https://youtu.be/ziFX6t-878Q?t=102",
-    "image": "/data/img/Transcendance-banner.png"
+    "image": "/img/Transcendance-banner.png"
   }
 ]

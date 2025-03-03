@@ -15,7 +15,7 @@ const Index = () => {
               {/* Profile Image Placeholder */}
               <div className="w-48 h-48 rounded-full bg-secondary border-4 border-primary/20 flex items-center justify-center mx-auto md:mx-0 mb-6 md:mb-0">
                 <img
-                  src="/data/img/portrait.jpg"
+                  src="/img/portrait.jpg"
                   alt="Pretty Picture of me"
                   className="w-40 h-40 rounded-full
                 object-cover"
