@@ -61,17 +61,17 @@ const Index = () => {
                 <div className="mt-8 flex flex-wrap gap-4">
                   <Link 
                     to="/experience" 
-                    className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-md hover:border-primary transition-colors font-medium"
+                    className="bg-primary inline-flex items-center gap-2 px-4 py-2 border border-border rounded-md hover:border-primary transition-colors font-medium"
                   >
                     View my experience
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                   
                   <Link 
-                    to="/blog" 
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium"
+                    to="/thoughts" 
+                    className="inline-flex items-center gap-2 px-4 py-2  text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium"
                   >
-                    Read my blog
+                    Read my thoughts
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>

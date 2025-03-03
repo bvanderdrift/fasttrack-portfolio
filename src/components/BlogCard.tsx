@@ -28,7 +28,7 @@ const BlogCard = ({ post, index, isLoaded = true }: BlogCardProps) => {
   
   return (
     <Link 
-      to={`/blog/${post.slug}`}
+      to={`/thoughts/${post.slug}`}
       className={cn(
         "block p-6 rounded-xl border border-primary/10 bg-white/95",
         "hover:shadow-md transition-all duration-300 hover:bg-white",
