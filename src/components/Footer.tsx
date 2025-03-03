@@ -11,8 +11,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <Link to="/" className="text-xl font-medium tracking-tight mb-4 inline-block">
-              <span className="text-fast">Product</span>
-              <span className="text-foreground">Engineer</span>
+              <span className="text-foreground">Beer</span>
+              <span className="text-fast"> van der Drift</span>
             </Link>
             <p className="text-muted-foreground mt-2 max-w-md">
               Fast, pragmatic, energetic & fun. Building great products that users love.
@@ -20,33 +20,26 @@ const Footer = () => {
           </div>
           
           <div className="flex flex-col md:items-end">
-            <div className="flex space-x-4 text-muted-foreground">
+            <div className="flex space-x-4">
               <a 
                 href="https://github.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="hover:text-foreground transition-colors"
+                className="flex items-center gap-2 px-3 py-2 text-sm bg-zinc-900 text-white rounded-md hover:bg-zinc-800 transition-colors"
                 aria-label="GitHub"
               >
-                <Github className="h-5 w-5" />
+                <Github className="h-4 w-4" />
+                GitHub
               </a>
               <a 
                 href="https://linkedin.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="hover:text-foreground transition-colors"
+                className="flex items-center gap-2 px-3 py-2 text-sm bg-[#0A66C2] text-white rounded-md hover:bg-[#0A66C2]/90 transition-colors"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a 
-                href="https://twitter.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:text-foreground transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
+                <Linkedin className="h-4 w-4" />
+                LinkedIn
               </a>
             </div>
             

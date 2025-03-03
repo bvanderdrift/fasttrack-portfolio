@@ -41,8 +41,8 @@ const Header = () => {
           to="/" 
           className="text-xl font-medium tracking-tight"
         >
-          <span className="text-fast">Product</span>
-          <span className="text-foreground">Engineer</span>
+          <span className="text-foreground">Beer</span>
+          <span className="text-fast"> van der Drift</span>
         </Link>
 
         {/* Desktop menu */}
