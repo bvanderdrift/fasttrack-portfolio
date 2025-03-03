@@ -1,6 +1,23 @@
 [
   {
-    "title": "Legal OS",
+    "title": "Amplify (Current)",
+    "workType": "asFreelancer",
+    "techs": [
+      "React Native",
+      "Node.js",
+      "Typescript",
+      "AWS Lambda",
+      "AWS CloudFormation",
+      "Firebase Functions",
+      "Firebase Firestore"
+    ],
+    "role": "Lead Developer",
+    "description": "Joined at 0 code and only a company vision. Am in charge of building the Festival Companion App, which we launched with over 4 organizers and 10+ events. Had 200k unique users in the 2024 season with a peak of 70k users at the same time online. 0 downtime.\n\nBuilt in an extremely lean team (1.2 FTE); delivering value fast.",
+    "link": "https://amplify.one/",
+    "image": "/img/amplify_logo.jpeg"
+  },
+  {
+    "title": "Legal OS (now Flank)",
     "workType": "asEmployee",
     "techs": [
       "TypeScript",
@@ -10,34 +27,16 @@
       "CircleCI",
       "GraphQL"
     ],
-    "role": "Lead Software Engineer",
+    "role": "Lead Developer",
     "description": "* Set up all tech on which Legal OS raised €2 million seed round.\n* Set up recruiting process and executed ahead of the seed round.\n* Product had zero downtime during my time at Legal OS.\n* Set up single-click deployment and migration infrastructure.",
-    "link": "https://www.legalos.io/",
+    "link": "https://www.getflank.ai/",
     "image": "/img/LegalOS-logo.png"
-  },
-  {
-    "title": "Crunchr Planning",
-    "workType": "asEmployee",
-    "role": "Product Manager",
-    "techs": ["PostgreSQL", "Python", "Django", "Angular"],
-    "description": "* Done dozens of user interviews as part of launching a new product.\n* Performed **1:1's** with 2 developers to have a healthy team.\n* Developed as well because of small team (3).",
-    "link": "https://www.crunchrapps.com",
-    "image": "/img/crunchr_logo.jpeg"
-  },
-  {
-    "title": "Crunchr Preference",
-    "workType": "asEmployee",
-    "role": "Product Manager",
-    "techs": ["PostgreSQL", "Python", "Django", "Angular"],
-    "description": "* Moved unmanaged team to **outcome-driven development**.\n* Performed **1:1's** with 2 different developers than above.\n* Developed as well here, again because of small team (3).",
-    "link": "https://www.crunchrapps.com",
-    "image": "/img/crunchr_logo.jpeg"
   },
   {
     "title": "Pieter Pot",
     "workType": "asFreelancer",
     "techs": ["React", "React Native", "Node.js", "Typescript", "AWS Lambda"],
-    "role": "Fullstack Developer",
+    "role": "Full Stack Product Engineer",
     "description": "* Onboarded 3rd party owned development processes into internal development team.\n* Main focus was the mobile app, but I worked on all the technical components of the company (backend, website, deposit management system).",
     "link": "https://pieter-pot.nl/",
     "image": "/img/pp-logo.jpg"
@@ -74,6 +73,24 @@
     "description": "* Helped to create endpoints using serverless tech for smooth user experiences on web-shops hosted through the Shopify platform.",
     "link": "https://www.code.nl/en/services/shopify-apps",
     "image": "/img/code-logo.png"
+  },
+  {
+    "title": "Crunchr Planning",
+    "workType": "asEmployee",
+    "role": "Product Manager",
+    "techs": ["PostgreSQL", "Python", "Django", "Angular"],
+    "description": "* Done dozens of user interviews as part of launching a new product.\n* Performed **1:1's** with 2 developers to have a healthy team.\n* Developed as well because of small team (3).",
+    "link": "https://www.crunchrapps.com",
+    "image": "/img/crunchr_logo.jpeg"
+  },
+  {
+    "title": "Crunchr Preference",
+    "workType": "asEmployee",
+    "role": "Product Manager",
+    "techs": ["PostgreSQL", "Python", "Django", "Angular"],
+    "description": "* Moved unmanaged team to **outcome-driven development**.\n* Performed **1:1's** with 2 different developers than above.\n* Developed as well here, again because of small team (3).",
+    "link": "https://www.crunchrapps.com",
+    "image": "/img/crunchr_logo.jpeg"
   },
   {
     "title": "Producter",
