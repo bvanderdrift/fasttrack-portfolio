@@ -86,14 +86,6 @@ const WorkCard = ({ experience, index }: WorkCardProps) => {
                 </div>
               )}
             </div>
-
-            <span className="text-xs font-medium bg-secondary px-2 py-1 rounded-full">
-              {experience.workType === "asEmployee"
-                ? "Employee"
-                : experience.workType === "asFreelancer"
-                ? "Freelancer"
-                : "Hobbyist"}
-            </span>
           </div>
 
           <div
