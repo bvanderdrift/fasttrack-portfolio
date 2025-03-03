@@ -64,10 +64,10 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				energy: "#F97316", // Bright orange for energy
-				pragmatic: "#0EA5E9", // Ocean blue for pragmatic
-				fun: "#D946EF", // Magenta pink for fun
-				fast: "#8B5CF6", // Vivid purple for fast
+				energy: "#FF8800", // Bright orange for energy
+				pragmatic: "#00CC66", // Bright green for pragmatic
+				fun: "#FFCC00", // Sunny yellow for fun
+				fast: "#FF5500", // Fiery orange-red for fast
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -153,7 +153,8 @@ export default {
 				subtle: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
 			},
 			backgroundImage: {
-				'subtle-pattern': "url('data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E')",
+				'subtle-pattern': "url('data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23FFCC00' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E')",
+				'dots-pattern': "url('data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23FF8800' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3C/g%3E%3C/svg%3E')",
 			},
 			backdropFilter: {
 				'none': 'none',

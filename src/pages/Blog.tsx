@@ -15,7 +15,7 @@ const Blog = () => {
   }, []);
   
   return (
-    <div className="min-h-screen bg-subtle-pattern bg-fixed">
+    <div className="min-h-screen bg-dots-pattern bg-fixed">
       <Header />
       <main className="min-h-screen pt-24 pb-16 px-6">
         <div className="max-w-5xl mx-auto">

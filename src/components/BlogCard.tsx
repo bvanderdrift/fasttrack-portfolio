@@ -29,22 +29,30 @@ const BlogCard = ({ post, index }: BlogCardProps) => {
     <Link 
       to={`/blog/${post.slug}`}
       className={cn(
-        "block p-6 rounded-xl border border-border bg-white",
-        "hover:shadow-md transition-all duration-300",
+        "block p-6 rounded-xl border border-primary/10 bg-white/95",
+        "hover:shadow-md transition-all duration-300 hover:bg-white",
         "animate-scale"
       )}
       style={{ animationDelay: `${delay}s` }}
     >
       <div className="space-y-2">
         <div className="flex items-center gap-2">
-          {post.tags.slice(0, 3).map((tag) => (
-            <span 
-              key={tag}
-              className="tech-tag bg-secondary/50 text-xs"
-            >
-              {tag}
-            </span>
-          ))}
+          {post.tags.slice(0, 3).map((tag, i) => {
+            // Cycle through tag variants for a playful look
+            const tagClasses = [
+              "tag-primary",
+              "tag-secondary",
+              "tag-accent"
+            ];
+            return (
+              <span 
+                key={tag}
+                className={tagClasses[i % tagClasses.length]}
+              >
+                {tag}
+              </span>
+            );
+          })}
         </div>
         
         <h3 className="font-medium text-xl tracking-tight">
@@ -62,7 +70,7 @@ const BlogCard = ({ post, index }: BlogCardProps) => {
             <span>{post.readingTime}</span>
           </div>
           
-          <div className="text-sm font-medium text-primary flex items-center gap-1 group">
+          <div className="text-sm font-medium text-accent flex items-center gap-1 group">
             Read post
             <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
           </div>
