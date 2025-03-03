@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
@@ -11,7 +12,8 @@ import { marked } from "marked";
 const configureMarkedRenderer = (slug: string) => {
   const renderer = new marked.Renderer();
   
-  renderer.image = (href, title, text) => {
+  // Fix the type error by matching the expected signature
+  renderer.image = function(href, title, text) {
     if (href.startsWith('http') || href.startsWith('//')) {
       return `<img src="${href}" alt="${text}" title="${title || ''}" class="rounded-md my-4 max-w-full" />`;
     }
@@ -26,11 +28,11 @@ const configureMarkedRenderer = (slug: string) => {
 const renderMarkdown = (markdown: string, slug: string): string => {
   const renderer = configureMarkedRenderer(slug);
   
+  // Fix the sanitize option which is no longer supported in newer marked versions
   marked.setOptions({
     renderer,
     gfm: true,
     breaks: true,
-    sanitize: false,
     smartLists: true,
     smartypants: true,
     xhtml: true
@@ -47,23 +49,34 @@ const BlogPostPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
-    if (!slug) {
-      navigate("/blog");
-      return;
-    }
+    const loadPost = async () => {
+      if (!slug) {
+        navigate("/blog");
+        return;
+      }
+      
+      const postData = getPostBySlug(slug);
+      
+      if (!postData || !postData.published) {
+        navigate("/blog");
+        return;
+      }
+      
+      setPost(postData);
+      
+      try {
+        const markdown = await getPostContent(slug);
+        setContent(renderMarkdown(markdown, slug));
+      } catch (error) {
+        console.error("Error loading post content:", error);
+        // Navigate back to blog if content can't be loaded
+        navigate("/blog");
+      }
+      
+      setIsLoading(false);
+    };
     
-    const postData = getPostBySlug(slug);
-    
-    if (!postData || !postData.published) {
-      navigate("/blog");
-      return;
-    }
-    
-    setPost(postData);
-    
-    const markdown = getPostContent(slug);
-    setContent(renderMarkdown(markdown, slug));
-    setIsLoading(false);
+    loadPost();
   }, [slug, navigate]);
   
   if (isLoading) {
