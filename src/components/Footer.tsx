@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 px-6 border-t border-border">
+    <footer className="py-6 px-6 border-t border-border">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
@@ -17,8 +17,7 @@ const Footer = () => {
               <span className="text-fast"> van der Drift</span>
             </Link>
             <p className="text-muted-foreground mt-2 max-w-md">
-              Love building products that
-              users love.
+              Love building products that users love.
             </p>
           </div>
 

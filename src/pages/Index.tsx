@@ -7,7 +7,7 @@ const Index = () => {
   return (
     <>
       <Header />
-      <main className="min-h-screen">
+      <main>
         {/* Hero Section */}
         <section className="pt-32 pb-16 px-6">
           <div className="max-w-5xl mx-auto">
