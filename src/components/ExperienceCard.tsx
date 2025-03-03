@@ -2,6 +2,7 @@
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { ExternalLink } from "lucide-react";
+import { TechTag } from "./TechTag";
 
 export type Experience = {
   title: string;
@@ -97,13 +98,10 @@ const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
           
           {experience.techs && experience.techs.length > 0 && (
             <div className="mt-4 flex flex-wrap gap-2">
-              {experience.techs.map((tech) => (
-                <span 
-                  key={tech} 
-                  className="tech-tag bg-secondary/50 hover:bg-secondary text-xs"
-                >
+              {experience.techs.map((tech, index) => (
+                <TechTag key={tech} index={index}>
                   {tech}
-                </span>
+                </TechTag>
               ))}
             </div>
           )}

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { ArrowRight } from "lucide-react";
-import { BlogTag } from "./BlogTag";
+import { TechTag } from "./TechTag";
 
 export type BlogPost = {
   slug: string;
@@ -45,9 +45,9 @@ const BlogCard = ({ post, index, isLoaded = true }: BlogCardProps) => {
         <div className="flex items-center gap-2">
           {post.tags.slice(0, 3).map((tag, i) => {
             return (
-              <BlogTag key={tag} index={i}>
+              <TechTag key={tag} index={i}>
                 {tag}
-              </BlogTag>
+              </TechTag>
             );
           })}
         </div>
