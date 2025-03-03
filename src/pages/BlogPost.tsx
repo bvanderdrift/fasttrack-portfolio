@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
@@ -13,7 +12,7 @@ import { marked } from "marked";
 const renderMarkdown = (markdown: string): string => {
   // In a real implementation, you'd use a proper markdown parser
   // For this demo, we're using a simplified approach with marked
-  return marked(markdown);
+  return marked.parse(markdown);
 };
 
 const BlogPostPage = () => {
@@ -42,8 +41,7 @@ const BlogPostPage = () => {
     
     // Fetch and render post content
     const markdown = getPostContent(slug);
-    const rendered = renderMarkdown(markdown);
-    setContent(rendered);
+    setContent(renderMarkdown(markdown));
     setIsLoading(false);
   }, [slug, navigate]);
   

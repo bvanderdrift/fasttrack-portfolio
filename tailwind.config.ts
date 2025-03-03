@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -155,7 +154,13 @@ export default {
 				'none': 'none',
 				'blur': 'blur(20px)',
 			},
+			typography: {
+				// Add any custom typography configuration here if needed
+			},
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		require("tailwindcss-animate"),
+		require("@tailwindcss/typography"),
+	],
 } satisfies Config;
