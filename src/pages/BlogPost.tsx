@@ -8,6 +8,7 @@ import { getPostBySlug, getPostContent } from "@/utils/blogUtils";
 import { BlogPost } from "@/components/BlogCard";
 import { marked, Renderer, Tokens } from "marked";
 import { Skeleton } from "@/components/ui/skeleton";
+import { BlogTag } from "@/components/BlogTag";
 
 interface CustomRenderer extends Renderer {
   image: ({ href, title, text }: Tokens.Image) => string;
@@ -192,10 +193,10 @@ const BlogPostPage = () => {
             </div>
 
             <div className="flex flex-wrap gap-2 mt-4">
-              {post.tags.map((tag) => (
-                <span key={tag} className="tech-tag bg-secondary text-xs">
+              {post.tags.map((tag, i) => (
+                <BlogTag key={tag} index={i}>
                   {tag}
-                </span>
+                </BlogTag>
               ))}
             </div>
           </div>
