@@ -21,11 +21,10 @@ const WorkPage = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16 animate-slide-up">
             <h1 className="text-3xl md:text-5xl font-medium tracking-tight mb-4">
-              Work Experience
+              What I've worked on
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              A timeline of my professional journey building products for
-              startups and established companies.
+              Bits of this and bits of that
             </p>
           </div>
 
