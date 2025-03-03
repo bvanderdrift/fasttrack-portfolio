@@ -60,10 +60,10 @@ const Index = () => {
                 
                 <div className="mt-8 flex flex-wrap gap-4">
                   <Link 
-                    to="/experience" 
+                    to="/work" 
                     className="bg-primary inline-flex items-center gap-2 px-4 py-2 border border-border rounded-md hover:border-primary transition-colors font-medium"
                   >
-                    View my experience
+                    View my work
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                   
