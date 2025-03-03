@@ -6,11 +6,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getPostBySlug, getPostContent } from "@/utils/blogUtils";
 import { BlogPost } from "@/components/BlogCard";
-import { marked } from "marked";
+import { marked, Renderer, Tokens } from "marked";
 import { Skeleton } from "@/components/ui/skeleton";
 
-interface CustomRenderer extends marked.Renderer {
-  image: (href: string, title: string | null, text: string) => string;
+interface CustomRenderer extends Renderer {
+  image: ({ href, title, text }: Tokens.Image) => string;
 }
 
 const configureMarkedRenderer = (slug: string): CustomRenderer => {
@@ -18,11 +18,7 @@ const configureMarkedRenderer = (slug: string): CustomRenderer => {
 
   // Custom image renderer to handle relative image paths
   const originalImageRenderer = renderer.image;
-  renderer.image = function (
-    href: string,
-    title: string | null,
-    text: string
-  ): string {
+  renderer.image = function ({ href, title, text }): string {
     try {
       if (typeof href !== "string") {
         console.error("Image href is not a string:", href);
@@ -48,7 +44,10 @@ const configureMarkedRenderer = (slug: string): CustomRenderer => {
   return renderer;
 };
 
-const renderMarkdown = (markdown: string, slug: string): string => {
+const renderMarkdown = async (
+  markdown: string,
+  slug: string
+): Promise<string> => {
   try {
     const renderer = configureMarkedRenderer(slug);
 
@@ -59,7 +58,7 @@ const renderMarkdown = (markdown: string, slug: string): string => {
       breaks: true,
     });
 
-    return marked.parse(markdown);
+    return await marked.parse(markdown);
   } catch (error) {
     console.error("Error parsing markdown:", error);
     return `<p>Error rendering content: ${
@@ -101,7 +100,9 @@ const BlogPostPage = () => {
           ""
         );
 
-        setContent(renderMarkdown(contentWithoutFrontmatter, slug));
+        const content = await renderMarkdown(contentWithoutFrontmatter, slug);
+
+        setContent(content);
         setError(null); // Clear any previous errors
       } catch (error) {
         console.error("Error loading post content:", error);
