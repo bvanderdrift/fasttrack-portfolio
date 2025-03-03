@@ -1,15 +1,17 @@
+
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { ExternalLink } from "lucide-react";
 import { TechTag } from "./TechTag";
+import { marked } from "marked";
 
 export type Work = {
   title: string;
-  role: string;
+  role?: string;
   workType: "asEmployee" | "asFreelancer" | "asHobbyist";
-  techs: string[];
+  techs?: string[];
   description: string;
-  link: string;
+  link?: string;
   image: string;
 };
 
@@ -17,6 +19,15 @@ interface WorkCardProps {
   experience: Work;
   index: number;
 }
+
+// Configure marked to open links in new tabs
+marked.use({
+  renderer: {
+    link(href, title, text) {
+      return `<a href="${href}" target="_blank" rel="noopener noreferrer" title="${title || ''}">${text}</a>`;
+    }
+  }
+});
 
 const WorkCard = ({ experience, index }: WorkCardProps) => {
   const isEven = index % 2 === 0;
@@ -37,6 +48,9 @@ const WorkCard = ({ experience, index }: WorkCardProps) => {
     "border-fun",
   ];
   const accentColor = accentColors[index % accentColors.length];
+
+  // Parse markdown in description
+  const parsedDescription = marked.parse(experience.description);
 
   return (
     <div
@@ -81,9 +95,10 @@ const WorkCard = ({ experience, index }: WorkCardProps) => {
             </span>
           </div>
 
-          <div className="mt-3 text-muted-foreground whitespace-pre-line">
-            {experience.description}
-          </div>
+          <div 
+            className="mt-3 text-muted-foreground prose prose-sm max-w-none"
+            dangerouslySetInnerHTML={{ __html: parsedDescription }}
+          />
 
           {experience.link && (
             <a

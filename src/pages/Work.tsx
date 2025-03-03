@@ -1,3 +1,4 @@
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WorkCard, { Work } from "@/components/WorkCard";
@@ -14,7 +15,7 @@ const WorkPage = () => {
     (exp): exp is Work => exp.workType === "asHobbyist"
   );
 
-  const techs = Array.from(new Set(workData.flatMap((exp) => exp.techs)));
+  const techs = Array.from(new Set(workData.flatMap((exp) => exp.techs || [])));
 
   return (
     <>
