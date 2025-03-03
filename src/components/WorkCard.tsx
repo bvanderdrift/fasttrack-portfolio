@@ -1,4 +1,3 @@
-
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { ExternalLink } from "lucide-react";
@@ -23,10 +22,12 @@ interface WorkCardProps {
 // Configure marked to open links in new tabs
 marked.use({
   renderer: {
-    link(href, title, text) {
-      return `<a href="${href}" target="_blank" rel="noopener noreferrer" title="${title || ''}">${text}</a>`;
-    }
-  }
+    link({ href, title, text }) {
+      return `<a href="${href}" target="_blank" rel="noopener noreferrer" title="${
+        title || ""
+      }">${text}</a>`;
+    },
+  },
 });
 
 const WorkCard = ({ experience, index }: WorkCardProps) => {
@@ -95,7 +96,7 @@ const WorkCard = ({ experience, index }: WorkCardProps) => {
             </span>
           </div>
 
-          <div 
+          <div
             className="mt-3 text-muted-foreground prose prose-sm max-w-none"
             dangerouslySetInnerHTML={{ __html: parsedDescription }}
           />
